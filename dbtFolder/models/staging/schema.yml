@@ -1,0 +1,327 @@
+version: 2
+
+sources:
+  - name: staging
+    database: cv19-453102
+    schema: google_open_data
+
+    tables:
+      - name: index
+      
+      - name: stg_economy
+
+      - name : stg_epidemiology
+
+      - name : stg_mobility
+
+      - name: stg_geography
+
+      - name: stg_health
+
+      - name: stg_hospitalizations
+
+      - name : stg_vaccinations
+
+      - name : stg_demographics
+
+models:
+  - name: index
+    description: "Common Columns to Join Tables"
+    columns:
+      - name: location_key
+        data_type: string
+        description: ""
+      - name: place_id
+        data_type: string
+        description: ""
+      - name: wikidata_id
+        data_type: string
+        description: ""
+      - name: datacommons_id
+        data_type: string
+        description: "" 
+      - name: country_code
+        data_type: string
+        description: ""
+      - name: country_name
+        data_type: string
+        description: ""
+      - name: subregion1_code
+        data_type: string
+        description: ""
+      - name: subregion1_name
+        data_type: string
+        description: ""
+      - name: subregion2_code
+        data_type: string
+        description: ""
+      - name: subregion2_name
+        data_type: string
+        description: "" 
+      - name: locality_code
+        data_type: string
+        description: ""  
+      - name: locality_name
+        data_type: string
+        description: ""
+      - name: iso_3166_1_alpha_2
+        data_type: string
+        description: ""
+      - name: iso_3166_1_alpha_3
+        data_type: string
+        description: "" 
+      - name: aggregation_level
+        data_type: string
+        description: ""
+      - name: __index_level_0__
+        data_type: integer
+
+  - name: stg_economy
+    description: "Economic variables such as GDP, per capita"
+    columns:
+      - name: location_key
+        data_type: string
+        description: ""
+      - name: gdp_usd
+        data_type: float
+      - name: gdp_per_capita_usd
+        data_type: float
+      - name: human_capital_index
+        data_type: float
+      - name: __index_level_0__
+        data_type: integer
+
+  - name: stg_epidemiology
+    description: "epidemiology"
+    columns:
+      - name: date
+        data_type: string
+      - name: location_key
+        data_type: string
+        description: ""
+      - name: new_confirmed
+        data_type: float
+      - name: new_deceased
+        data_type: float
+      - name: new_recovered
+        data_type: float
+      - name: new_tested
+        data_type: float
+      - name: cumulative_confirmed
+        data_type: float
+      - name: cumulative_deceased
+        data_type: float
+      - name: cumulative_recovered
+        data_type: float
+      - name: cumulative_tested
+        data_type: float
+      - name: __index_level_0__
+        data_type: integer
+  
+  - name: stg_mobility
+    description: "Mobility stats like distance from stores, parks, transit stations etc"
+    columns:
+      - name: date
+        data_type: string
+      - name: location_key
+        data_type: string
+      - name: mobility_retail_and_recreation
+        data_type: float
+      - name: mobility_grocery_and_pharmacy
+        data_type: float
+      - name: mobility_parks
+        data_type: float
+      - name: mobility_transit_stations
+        data_type: float
+      - name: mobility_workplaces
+        data_type: float
+      - name: mobility_residential
+        data_type: float
+      - name: __index_level_0__
+
+  - name: stg_geography
+    description: "Geography stuff"
+    columns:
+      - name: location_key
+        data_type: string
+      - name: openstreetmap_id
+        data_type: float
+      - name: latitude
+        data_type: float
+      - name: longitude
+        data_type: float
+      - name: elevation_m
+        data_type: float
+      - name: area_sq_km
+        data_type: area_rural_sq_km
+      - name: area_urban_sq_km
+        data_type: float
+    
+  - name: stg_health
+    description: "Health stuff"
+    columns:
+      - name: location_key
+        data_type: string
+      - name: life_expectancy
+        data_type: float
+      - name: smoking_prevalence
+        data_type: float
+      - name: diabeties_prevalence
+        data_type: float
+      - name: infant_mortality_rate
+        data_type: float
+      - name: adult_male_mortality_rate
+        data_type: float
+      - name: adult_female_mortality_rate
+        data_type: float
+      - name: pollution_mortality_rate
+        data_type: float
+      - name: comorbidity_mortality_rate
+        data_type: float
+      - name: hospital_beds_per_1000
+        data_type: float
+      - name: nurses_per_1000
+        data_type: float
+      - name: physicians_per_1000
+        data_type: float
+      - name: health_expenditure_usd
+        data_type: float
+      - name: out_of_pocket_health_expenditure_usd
+        data_type: float
+  
+  - name: stg_hospitalizations
+    description: "hospitalizations stuff"
+    columns:
+      - name: location_key
+        data_type: string
+      - name: new_hospitalized_patients
+        data_type: float
+      - name: cumulative_hospitalized_patients
+        data_type: float
+      - name: current_hospitalized_patients
+        data_type: float
+      - name: new_intensive_care_patients
+        data_type: float
+      - name: cumulative_intensive_care_patients
+        data_type: float
+      - name: current_intensive_care_patients
+        data_type: float
+      - name : new_ventilator_patients
+        data_type: float
+      - name : cumulative_ventilator_patients
+        data_type: float
+      - name : current_ventilator_patients
+        data_type: float
+
+
+  - name: stg_vaccinations
+    description: "hospitalizations stuff"
+    columns:
+      - name: date
+        data_type: string
+      - name: location
+        data_type: string
+      - name : new_persons_vaccinated
+        data_type: float
+      - name : cumulative_persons_vaccinated
+        data_type: float
+      - name : new_persons_fully_vaccinated
+        data_type: float
+      - name : cumulative_persons_fully_vaccinated
+        data_type: float
+      - name : new_vaccine_doses_administered
+        data_type: float
+      - name : cumulative_vaccine_doses_administered
+        data_type: float
+      - name : new_persons_vaccinated_pfizer
+        data_type: float
+      - name : cumulative_persons_vaccinated_pfizer
+        data_type: float
+      - name : new_persons_fully_vaccinated_pfizer
+        data_type: float
+      - name : cumulative_persons_fully_vaccinated_pfizer
+        data_type: float
+      - name : new_vaccine_doses_administered_pfizer
+        data_type: float
+      - name : cumulative_vaccine_doses_administered_pfizer
+        data_type: float
+      - name : new_persons_vaccinated_moderna
+        data_type: float
+      - name : cumulative_persons_vaccinated_moderna
+        data_type: float
+      - name : new_persons_fully_vaccinated_moderna
+        data_type: float
+      - name : cumulative_persons_fully_vaccinated_moderna
+        data_type: float
+      - name : new_vaccine_doses_administered_moderna
+        data_type: float
+      - name : cumulative_vaccine_doses_administered_moderna
+        data_type: float
+      - name : new_persons_vaccinated_janssen
+        data_type: float
+      - name : cumulative_persons_vaccinated_janssen
+        data_type: float
+      - name: new_persons_fully_vaccinated_janssen
+        data_type: float
+      - name :  cumulative_persons_fully_vaccinated_janssen
+        data_type: float
+      - name : new_vaccine_doses_administered_janssen
+        data_type: float
+      - name : cumulative_vaccine_doses_administered_janssen
+        data_type: float
+      - name : new_persons_vaccinated_sinovac
+        data_type: float
+      - name : total_persons_vaccinated_sinovac
+        data_type: float
+      - name : new_persons_fully_vaccinated_sinovac
+        data_type: float
+      - name : total_persons_fully_vaccinated_sinovac
+        data_type: float
+      - name : new_vaccine_doses_administered_sinovac
+        data_type: float
+      - name : total_vaccine_doses_administered_sinovac
+        data_type: float
+  
+  - name: stg_demographics
+    description: "demographics stuff"
+    columns:
+      - name: location_key
+        data_type: string
+      - name : population
+        data_type: float
+      - name : population_male
+        data_type: float
+      - name : population_female
+        data_type: float
+      - name : population_rural
+        data_type: float
+      - name : population_urban
+        data_type: float
+      - name : population_clustered
+        data_type: float
+      - name : population_density
+        data_type: float
+      - name : population_age_00_09
+        data_type: float
+      - name : population_age_10_19
+        data_type: float
+      - name : population_age_20_29
+        data_type: float
+      - name : population_age_30_39
+        data_type: float
+      - name : population_age_40_49
+        data_type: float
+      - name : population_age_50_59
+        data_type: float
+      - name : population_age_60_69
+        data_type: float
+      - name : population_age_70_89
+        data_type: float
+      - name : population_age_80_and_older
+        data_type: float
+        
+ 
+
+
+
+            
