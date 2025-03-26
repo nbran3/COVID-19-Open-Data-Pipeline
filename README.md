@@ -28,5 +28,18 @@ Once you have done that, all you really have to do is run the Dockerfile (which 
 
 
 ## Data Transformation
+For this part of the project I would highly recommend using dbt Cloud, but you can use dbt core, but you will need to manually change about 15 SQL files, specifically the BigQuery tables that the files are reading. In dbt Cloud, a reference system is used, so if you connect to the database that you stored the data in, dbt will automatically reference the table and you will not need to manually type out each project id. 
+
+To do both connections on dbt Cloud, go to the "Dashboard" page and click on settings in the top right 
+![image](https://github.com/user-attachments/assets/fc8d792e-e7ee-44e4-8add-42f383fb879a)
+
+Then, on the pop-up menu, complete both the "Repository" and "Deployment connection" options. I found it easiest to manually log into GitHub and give dbt access to the specific repository. For the deployment connection, you can use the same JSON service account credentials that were generated earlier in the project. It should look like this.
+![image](https://github.com/user-attachments/assets/9505c117-40d5-4fb8-b2b7-8e8ebd28db8c)
+
+
+Make sure you are in the "dbtFolder" subdirectory in dbt. If both are properly loaded, all you need to do is type in "dbt run" in the CLI, and everything will run. Below is a picture of where to type in the dbt run command, and also a picture of the lineage. 
+![image](https://github.com/user-attachments/assets/9c0eb17c-c5ed-40ba-b093-739d5b795021)
+
+## Dashboards
 
 
