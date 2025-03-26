@@ -46,6 +46,5 @@ Make sure you are in the "dbtFolder" subdirectory in dbt. If both are properly l
 ![image](https://github.com/user-attachments/assets/9c0eb17c-c5ed-40ba-b093-739d5b795021)
 
 ## Dashboards
-<iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/a8aec908-8d66-4988-b50d-74d4f5a775bb/page/jkxEF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-
+https://lookerstudio.google.com/embed/reporting/a8aec908-8d66-4988-b50d-74d4f5a775bb/page/jkxEF
 
