@@ -22,7 +22,8 @@ I tried to make the project as simple as possible, and so you need to run the Do
 To start, you will need to have a Cloud account and a new project with a service account (with credentials) that allows you to store data in a Bucket/ Data Lake, the ability to read and write to BigQuery/ Cloud SQL database, and Looker/ data viz tool admin. I used Google Cloud for this project, but I am sure Azure or AWS will work rather similar.
 I mounted the credentials (JSON) in the Airflow subdirectory so there would not be any problems. 
 
-Below are the three I used in Google Cloud
+Below are the three I used in Google Cloud :
+
 ![image](https://github.com/user-attachments/assets/4e3ee3a4-6640-4258-a9c2-64c5d2b7770d)
 
 
