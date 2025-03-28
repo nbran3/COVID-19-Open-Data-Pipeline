@@ -1,5 +1,5 @@
 WITH source AS (
-    SELECT * FROM {{ source('staging', 'stg_hospitalizations') }}
+    SELECT * FROM {{ source('staging', 'hospitalizations') }}
 ),
 
 casted_hospitalizations AS (

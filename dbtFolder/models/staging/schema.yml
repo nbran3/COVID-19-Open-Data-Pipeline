@@ -8,21 +8,21 @@ sources:
     tables:
       - name: index
       
-      - name: stg_economy
+      - name: economy
 
-      - name : stg_epidemiology
+      - name : epidemiology
 
-      - name : stg_mobility
+      - name : mobility
 
-      - name: stg_geography
+      - name: geography
 
-      - name: stg_health
+      - name: health
 
-      - name: stg_hospitalizations
+      - name: hospitalizations
 
-      - name : stg_vaccinations
+      - name : vaccinations
 
-      - name : stg_demographics
+      - name : demographics
 
 models:
   - name: index
@@ -76,7 +76,7 @@ models:
       - name: __index_level_0__
         data_type: integer
 
-  - name: stg_economy
+  - name: economy
     description: "Economic variables such as GDP, per capita"
     columns:
       - name: location_key
@@ -91,7 +91,7 @@ models:
       - name: __index_level_0__
         data_type: integer
 
-  - name: stg_epidemiology
+  - name: epidemiology
     description: "epidemiology"
     columns:
       - name: date
@@ -118,7 +118,7 @@ models:
       - name: __index_level_0__
         data_type: integer
   
-  - name: stg_mobility
+  - name: mobility
     description: "Mobility stats like distance from stores, parks, transit stations etc"
     columns:
       - name: date
@@ -139,7 +139,7 @@ models:
         data_type: float
       - name: __index_level_0__
 
-  - name: stg_geography
+  - name: geography
     description: "Geography stuff"
     columns:
       - name: location_key
@@ -157,7 +157,7 @@ models:
       - name: area_urban_sq_km
         data_type: float
     
-  - name: stg_health
+  - name: health
     description: "Health stuff"
     columns:
       - name: location_key
@@ -189,7 +189,7 @@ models:
       - name: out_of_pocket_health_expenditure_usd
         data_type: float
   
-  - name: stg_hospitalizations
+  - name: hospitalizations
     description: "hospitalizations stuff"
     columns:
       - name: location_key
@@ -214,7 +214,7 @@ models:
         data_type: float
 
 
-  - name: stg_vaccinations
+  - name: vaccinations
     description: "hospitalizations stuff"
     columns:
       - name: date
@@ -282,7 +282,7 @@ models:
       - name : total_vaccine_doses_administered_sinovac
         data_type: float
   
-  - name: stg_demographics
+  - name: demographics
     description: "demographics stuff"
     columns:
       - name: location_key

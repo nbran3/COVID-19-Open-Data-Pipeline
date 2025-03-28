@@ -7,24 +7,24 @@
 
 WITH index_data AS (
     SELECT * 
-    FROM {{ ref('stg_staging__index')}} 
+    FROM {{ ref('stg_index')}} 
 ),
 
 economy_data AS (
     SELECT * 
-    FROM {{ ref('stg_staging__stg_economy') }} 
+    FROM {{ ref('stg_economy') }} 
 ),
 geography_data as(
     SELECT *
-    FROM {{ref('stg_staging__stg_geography')}}
+    FROM {{ref('stg_geography')}}
 ),
 health_data as(
     SELECT *
-    FROM {{ref('stg_staging__stg_health')}}
+    FROM {{ref('stg_health')}}
 ),
 demographics_data as(
     SELECT *
-    FROM {{ref('stg_staging__stg_demographics')}}
+    FROM {{ref('stg_demographics')}}
 )
 
 SELECT 

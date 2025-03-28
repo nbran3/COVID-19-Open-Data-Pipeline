@@ -9,7 +9,7 @@ with
 
 source as (
 
-    select * from {{ source('staging', 'stg_economy') }}
+    select * from {{ source('staging', 'economy') }}
 
 ),
 

@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('staging', 'stg_health') }}
+    select * from {{ source('staging', 'health') }}
 
 ),
 

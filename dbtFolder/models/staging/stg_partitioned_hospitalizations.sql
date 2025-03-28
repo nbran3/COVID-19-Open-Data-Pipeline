@@ -8,4 +8,4 @@
     cluster_by=["location_key"]
 ) }}
 
-SELECT * FROM {{ ref('stg_staging__stg_hospitalizations') }}
+SELECT * FROM {{ ref('stg_hospitalizations') }}

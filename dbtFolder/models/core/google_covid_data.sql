@@ -7,7 +7,7 @@
 
 WITH index_data AS (
     SELECT * 
-    FROM {{ ref('stg_staging__index')}} 
+    FROM {{ ref('stg_index')}} 
 ),
 
 epidemiology_data AS(

@@ -8,4 +8,4 @@
     cluster_by=["location_key"]
 ) }}
 
-SELECT * FROM {{ ref('stg_staging__stg_mobility') }}
+SELECT * FROM {{ ref('stg_mobility') }}

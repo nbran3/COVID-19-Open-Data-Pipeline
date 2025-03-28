@@ -5,7 +5,7 @@
 }}
 
 WITH source AS (
-    SELECT * FROM {{ source('staging', 'stg_epidemiology') }}
+    SELECT * FROM {{ source('staging', 'epidemiology') }}
 ),
 
 epidemiology_non_casted AS (
