@@ -29,12 +29,14 @@ Below are the three I used in Google Cloud :
 
 You will also need to either authenticate to Google Cloud or your choice of a Cloud provider either through the Google CLI, or if you run a Python Script (non Airflow), the local terminal (VSCode) will prompt you if you want to sign in/ authenitcate through the web browser to Google Cloud SDK. You will need a bucket and a dataset, I used Terraform to create the bucket and the BigQuery table by using the project ID. You will need to go into the Airflow DAG folder to switch the dataset ID, bucket ID, and the project ID, but they are Python variables, so you will only need to do it once. Below is where in the script/ dag you need to change for the project to run.
 
-![image](https://github.com/user-attachments/assets/c3a8dcb0-d40b-44c9-b4a4-cb6731c989b0)
+![image](https://github.com/user-attachments/assets/345bf53b-9af7-4922-b10a-417390524436)
+
 
 
 Make sure to either hard-code the credentials or hard-code them into both the storage and BigQuery client. All things that need to be changed are marked by "############################"
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/da9a6713-9a8f-4780-a342-9d015232456e)
+
 
 
 Once you have done that, all you really have to do is run the Dockerfile (which contains Airflow), wait for it to build, and then go to localhost:8080 in a browser. The login and password are both "airflow", and the specific DAG you are looking for is called "covid_data_pipeline". It will take some time to process as the script downloads a file via an iterating list, transforms it to a parquet file, uploads the parquet to a Google Cloud Bucket, then takes the data from the bucket and makes it into individual BigQuery tables, and removes the downloads CSV file from the local directory. It took me about 4 minutes and 23 seconds on my Windows desktop which is hard-wired to my router. I also did the process on my 2017 MacBook (Intel) and it took " " minutes.  
