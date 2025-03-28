@@ -55,6 +55,10 @@ Then, on the pop-up menu, complete both the "Repository" and "Deployment connect
 Make sure you are in the "dbtFolder" subdirectory in dbt. If both are properly loaded, all you need to do is type in "dbt run" in the CLI, and everything will run. Below is a picture of where to type in the dbt run command, and also a picture of the lineage. 
 ![image](https://github.com/user-attachments/assets/9c0eb17c-c5ed-40ba-b093-739d5b795021)
 
+It took me about a minute in dbt on both platforms to complete the task.
+![image](https://github.com/user-attachments/assets/07a058b4-feea-4d73-961c-c2b6c84698f1)
+
+
 ## Dashboards
 https://lookerstudio.google.com/embed/reporting/a8aec908-8d66-4988-b50d-74d4f5a775bb/page/jkxEF
 
