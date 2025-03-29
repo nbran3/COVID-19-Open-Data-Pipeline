@@ -26,13 +26,7 @@ credentials = '/opt/airflow/keys/my-creds.json'
 ##################################
 
 
-def download_all_files():
-    """Downloads all CSV files and converts them to Parquet."""
-    for file_name in files:
-        download_file(file_name)
-
-
-def download_file(file_name):
+def download_files(file_name):
     """Downloads CSV file and converts it to Parquet."""
     url = f"{BASE_URL}{file_name}.csv"
     file_path = os.path.join(DOWNLOAD_DIR, f"{file_name}.csv")
@@ -120,12 +114,7 @@ with DAG(
 
     download_files_task = PythonOperator(
         task_id='download_files',
-        python_callable=download_all_files,  # Changed to the download function
-    )
-
-    upload_to_gcs_task = PythonOperator(
-        task_id='upload_to_gcs',
-        python_callable=upload_to_gcs,
+        python_callable=upload_to_gcs, 
     )
 
     ingest_to_bigquery_task = PythonOperator(
@@ -133,5 +122,4 @@ with DAG(
         python_callable=ingest_into_bigquery,
     )
 
-    # Define the correct task dependencies
-    download_files_task >> upload_to_gcs_task >> ingest_to_bigquery_task
+    download_files_task >> ingest_to_bigquery_task
