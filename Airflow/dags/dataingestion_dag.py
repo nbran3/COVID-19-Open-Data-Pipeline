@@ -112,14 +112,26 @@ with DAG(
     tags=['covid', 'gcs'],
 ) as dag:
 
-    download_files_task = PythonOperator(
-        task_id='download_files',
-        python_callable=upload_to_gcs, 
-    )
+   download_files_tasks = [
+    PythonOperator(
+        task_id=f'download_{file}',
+        python_callable=download_files,
+        op_kwargs={'file_name': file},
+    ) for file in files
+]
 
-    ingest_to_bigquery_task = PythonOperator(
-        task_id='ingest_into_bigquery',
-        python_callable=ingest_into_bigquery,
-    )
+upload_to_gcs_task = PythonOperator(
+    task_id='upload_to_gcs',
+    python_callable=upload_to_gcs,  
+)
 
-    download_files_task >> ingest_to_bigquery_task
+ingest_to_bigquery_task = PythonOperator(
+    task_id='ingest_into_bigquery',
+    python_callable=ingest_into_bigquery,
+)
+
+# Set dependencies
+for task in download_files_tasks:
+    task >> upload_to_gcs_task
+
+upload_to_gcs_task >> ingest_to_bigquery_task
